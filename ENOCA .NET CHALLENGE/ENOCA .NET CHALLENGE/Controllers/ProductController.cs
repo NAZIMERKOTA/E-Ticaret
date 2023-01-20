@@ -10,7 +10,7 @@ using ENOCA.NET_CHALLENGE.Entity;
 
 namespace ENOCA.NET_CHALLENGE.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private DataContext db = new DataContext();
