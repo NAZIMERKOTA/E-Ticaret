@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
+using System.Web.UI;
 using ENOCA.NET_CHALLENGE.Entity;
 
 namespace ENOCA.NET_CHALLENGE.Controllers
@@ -51,13 +53,27 @@ namespace ENOCA.NET_CHALLENGE.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Stock,Image,IsHome,IsApproved,CategoryId")] Product product)
         {
+            TimeSpan start = new TimeSpan(8, 3, 0); //10 o'clock
+            TimeSpan end = new TimeSpan(11, 0, 0); //12 o'clock
+            TimeSpan now = DateTime.Now.TimeOfDay;
 
-            if (ModelState.IsValid)
+            if ((now > start) && (now < end))
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                if (ModelState.IsValid)
+                {
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
             }
+            else
+            {
+                Response.Write("<script>alert('8:30 ile 11:00 arası ürün oluşturabilirsiniz.');</script>");
+
+            }
+
 
 
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
