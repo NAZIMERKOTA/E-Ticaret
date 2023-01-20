@@ -21,6 +21,8 @@ namespace ENOCA.NET_CHALLENGE.Entity
         public bool IsHome { get; set; }
         public bool IsApproved { get; set; }
         public int CategoryId { get; set; }
+
+
         public Category Category { get; set; }
     }
 }

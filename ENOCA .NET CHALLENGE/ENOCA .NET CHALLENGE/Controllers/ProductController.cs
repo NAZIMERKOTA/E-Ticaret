@@ -51,12 +51,14 @@ namespace ENOCA.NET_CHALLENGE.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Stock,Image,IsHome,IsApproved,CategoryId")] Product product)
         {
+
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
 
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
             return View(product);
