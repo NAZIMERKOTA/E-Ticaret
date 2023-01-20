@@ -1,0 +1,19 @@
+.jumbotron
+{
+    background-image: url("../img/Bg.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+#product-price
+{
+    font-size: 26px;
+    color: red;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+    padding: 60px 15px 0;
+  }

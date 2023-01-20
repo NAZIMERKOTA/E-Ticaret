@@ -1,0 +1,19 @@
+﻿@using ENOCA.NET_CHALLENGE.Models
+@model IEnumerable<ProductModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <div class="container mb-5">
+        <div class="h-100 p-5 ">
+
+            <div class="container mb-5">
+
+                @Html.Partial("_ProductList", Model)
+
+            </div>
+
+        </div>
+    </div>
+</div>

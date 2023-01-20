@@ -1,0 +1,34 @@
+﻿@using ENOCA.NET_CHALLENGE.Models
+@model IEnumerable<ProductModel>
+<div class="row">
+
+
+    @foreach (var product in Model)
+    {
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="/Upload/@product.Image" class="card-img-top" alt="@product.Name">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/Home/Details/@product.Id">@product.Name</a>
+                    </h5>
+                    <p class="card-text">@product.Description</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">$@product.Price</small>
+                    @if (product.Stock>0)
+                    {
+                        <h5> <span class="badge text-bg-success">Stock</span></h5>
+                    }
+                    else
+                    {
+                        <h5> <span class="badge text-bg-danger">Stockout</span></h5>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
